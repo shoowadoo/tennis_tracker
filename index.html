@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tennis tracker</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <script defer src="src/stats.js"></script>
+  <script defer src="src/storage.js"></script>
+  <script defer src="src/app.js"></script>
+</head>
+<body>
+  <main>
+    <section class="scoreboard" aria-label="Point totals">
+      <span>Points won</span>
+      <div class="score"><div>Player A<strong id="score-a">0</strong></div><div>Player B<strong id="score-b">0</strong></div></div>
+    </section>
+    <section class="point-grid" aria-label="Record who won the point and how">
+      <h2>Point to A</h2><h2>Point to B</h2>
+      <button type="button" class="player-a" data-player="A" data-outcome="winner" aria-label="Player A wins with a winner">Winner</button>
+      <button type="button" class="player-b" data-player="B" data-outcome="winner" aria-label="Player B wins with a winner">Winner</button>
+      <button type="button" class="player-a" data-player="A" data-outcome="forced_error" aria-label="Player A wins from Player B's forced error">Forced error</button>
+      <button type="button" class="player-b" data-player="B" data-outcome="forced_error" aria-label="Player B wins from Player A's forced error">Forced error</button>
+      <button type="button" class="player-a" data-player="A" data-outcome="unforced_error" aria-label="Player A wins from Player B's unforced error">Unforced error</button>
+      <button type="button" class="player-b" data-player="B" data-outcome="unforced_error" aria-label="Player B wins from Player A's unforced error">Unforced error</button>
+      <button type="button" id="undo" class="utility" disabled>Undo</button>
+      <button type="button" id="reset" class="utility" disabled>New match</button>
+      <button type="button" id="export" class="utility" disabled>Export history</button>
+    </section>
+    <section aria-label="Player statistics" class="stats"><table><thead><tr><th scope="col">Player</th><th scope="col">Winners</th><th scope="col">Forced errors</th><th scope="col">Unforced errors</th></tr></thead><tbody id="stats"></tbody></table></section>
+    <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+    <p id="save-status" role="alert" hidden></p>
+  </main>
+</body>
+</html>
